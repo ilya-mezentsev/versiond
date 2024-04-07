@@ -1,0 +1,24 @@
+{
+  "default_version": "v1",
+
+  "cache": {
+    "dir": "/tmp/versiond"
+  },
+
+  "version": {
+    "source": {
+      "address": "http://localhost:8888/api/version",
+      "timeout": "3s"
+    },
+
+    "monitor": {
+      "period": "15s"
+    }
+  },
+
+  "on_change_cmds": {
+    "before": "/tmp/before.sh",
+    "main": "/tmp/main.sh",
+    "after": "/tmp/after.sh"
+  }
+}
