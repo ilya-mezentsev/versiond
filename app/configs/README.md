@@ -63,5 +63,9 @@ Commands executed after version change will happen:
 
 For each command will be provided environment variables CURRENT_VERSION and NEW_VERSION with corresponding values.
 
-### config
-TODO add impl of config updates
+### CMDs details
+
+Some details about commands:
+* All of them are optional;
+* Existence of scripts is not checked by demon;
+* Successfully executed script must return `0` code.

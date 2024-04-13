@@ -3,7 +3,7 @@
 package services
 
 import (
-	"github.com/ilya-mezentsev/versiond/app/internal/services/command/shell"
+	"github.com/ilya-mezentsev/versiond/app/internal/services/command"
 	"github.com/ilya-mezentsev/versiond/app/internal/services/current_version"
 	"github.com/ilya-mezentsev/versiond/app/internal/services/monitor"
 	"github.com/ilya-mezentsev/versiond/app/internal/services/request"
@@ -33,9 +33,9 @@ func New(config Config) Services {
 		),
 
 		update: update.New(
-			shell.New(config.OnChangeCmds.Before),
-			shell.New(config.OnChangeCmds.Main),
-			currentVersion.Decorate(shell.New(config.OnChangeCmds.After)),
+			command.Shell(config.OnChangeCmds.Before),
+			command.Shell(config.OnChangeCmds.Main),
+			currentVersion.Decorate(command.Shell(config.OnChangeCmds.After)),
 		),
 	}
 }

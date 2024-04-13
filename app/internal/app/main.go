@@ -13,11 +13,13 @@ import (
 
 const pidFilename = "pid"
 
+// Main TODO logging as demon
 func Main() {
 	cfg := mustParseConfig(os.Getenv("CONFIG_PATH"))
-	ss := services.New(cfg)
 
 	mustSavePID(cfg.Cache.Dir)
+
+	ss := services.New(cfg)
 
 	done := make(chan struct{})
 	errs := make(chan error)
